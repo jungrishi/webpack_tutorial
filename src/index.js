@@ -13,8 +13,21 @@ so basically (required)look in heirarchical order from the entry point */
 
 //const sum = require('./sum'); //relative file reference
 //ES2015
-import sum from './sum';
-import './image_viewer';//no import code; only run 
-const total = sum(2,3);
-console.log(total);
+// import sum from './sum';
+// import './image_viewer';//no import code; only run 
+// const total = sum(2,3);
+// console.log(total);
 
+//starting code splitting
+const button = document.createElement('button');
+button.innerText = 'click me';
+button.onclick = () => {
+    //system call: global var in js(es2015)
+    //asyn call: takes some time to find and exe the module
+    //return promises
+    System.import('./image_viewer').then(module => {
+        module.default();
+    });
+};
+
+document.body.appendChild(button);
