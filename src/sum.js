@@ -5,4 +5,4 @@ const sum = (a,b) => a + b;
 //common js:module.exports = sum;  
 
 //ES2015
-export default sum;
+export default sum; 
